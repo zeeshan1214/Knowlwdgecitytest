@@ -5,12 +5,13 @@
     - Requirements:
         - Pure PHP;
         - PSR-12;
-        - Services should have as few dependencies as possible;
+        - Services should have as few sql requests as possible;
 2. Create a database structure and put migrations in /database/migrations folder;
     - Example of migration is provided in the /database/migrations/1713358478_example.sql file;
     - Mock data is located in the /data folder;
 4. Create a web page to display the courses and categories;
     - Design layouts are located in the /design folder;
+        - Pixel perfect is not required;
     - Requirements:
         - Any front-end framework can be used, but pure technologies are preferred;
     - Layout key features include:
