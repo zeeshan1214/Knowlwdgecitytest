@@ -1,2 +1,4 @@
 .idea
+api/vendor
+api/database/volume
 database/volume

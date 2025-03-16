@@ -1,0 +1,5 @@
+# api/.dockerignore
+database/volume/*
+*.pem
+*.key
+.env

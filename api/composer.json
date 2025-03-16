@@ -1,0 +1,19 @@
+{
+    "name": "assesment/test",
+    "description": "test project",
+    "type": "false",
+    "autoload": {
+        "psr-4": {
+            "Assesment\\Test\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Zeeshan haider",
+            "email": "chz9399@gmail.com"
+        }
+    ],
+    "require": {
+        "nikic/fast-route": "^1.3"
+    }
+}

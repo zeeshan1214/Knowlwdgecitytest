@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
   reverse-proxy:
@@ -10,9 +10,9 @@ services:
       - --entrypoints.mysql.address=:3306
       - --providers.docker.exposedbydefault=true
     ports:
-      - "80:80"
-      - "8080:8080"
-      - "3306:3306"
+      - "8080:80" # Changed from 80:80
+      - "8081:8080" # Traefik dashboard
+      - "3307:3306" # MySQL port
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
   db:
@@ -23,7 +23,7 @@ services:
       MYSQL_USER: test_user
       MYSQL_PASSWORD: test_password
     volumes:
-        - ./database/volume:/var/lib/mysql
+      - ./database/volume:/var/lib/mysql
     hostname: database.cc.localhost
     labels:
       - traefik.tcp.routers.mysql.entrypoints=mysql
@@ -33,12 +33,14 @@ services:
       - 8001:3306
 
   api:
+    build: ./api
     image: php:8.3-apache
     container_name: api
     depends_on:
       - db
     volumes:
       - ./api/:/var/www/html/
+      - ./data/:/var/www/html/data/ 
     stdin_open: true
     tty: true
     hostname: api.cc.localhost
