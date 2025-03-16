@@ -44,7 +44,7 @@ class CategoryController
                 GROUP BY ct.id
                 ORDER BY ct.parent_id, ct.name
             ";
-
+            
             $stmt = $pdo->query($sql);
             $categories = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
